@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-sans text-gray-800 bg-gray-50 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-400 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-500; }
+}
+
+/* ─── Components ────────────────────────────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white rounded-lg
+           bg-gradient-to-r from-amber-400 to-orange-500
+           shadow-btn hover:shadow-btn-hover
+           transform hover:scale-105 active:scale-95
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2
+           relative overflow-hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-200;
+  }
+  .btn-primary:hover::after { @apply opacity-10; }
+  .btn-primary:active::after { @apply opacity-20; }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-amber-600 rounded-lg
+           border-2 border-amber-400 bg-white
+           hover:bg-amber-50 hover:border-amber-500
+           transform hover:scale-105 active:scale-95
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white rounded-lg
+           bg-gray-900 hover:bg-gray-800
+           transform hover:scale-105 active:scale-95
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-medium text-gray-700 rounded-lg
+           hover:bg-gray-100
+           transform hover:scale-105 active:scale-95
+           transition-all duration-200;
+  }
+
+  .btn-icon {
+    @apply flex items-center justify-center w-10 h-10 rounded-full
+           text-gray-600 hover:text-amber-500 hover:bg-amber-50
+           transform hover:scale-110 active:scale-95
+           transition-all duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover
+           transform hover:-translate-y-1
+           transition-all duration-300 ease-out;
+  }
+
+  .card-flat {
+    @apply bg-white rounded-xl border border-gray-100
+           hover:border-amber-200 hover:shadow-md
+           transition-all duration-200;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white
+           text-gray-800 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .input-search {
+    @apply w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 bg-white
+           text-gray-800 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide;
+  }
+  .badge-orange { @apply badge bg-orange-100 text-orange-700; }
+  .badge-green  { @apply badge bg-green-100 text-green-700; }
+  .badge-red    { @apply badge bg-red-100 text-red-700; }
+  .badge-blue   { @apply badge bg-blue-100 text-blue-700; }
+  .badge-gold   { @apply badge bg-amber-100 text-amber-800; }
+
+  /* Rating stars */
+  .rating-stars { @apply flex items-center gap-0.5; }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gray-200 rounded animate-pulse;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Section headings */
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 mb-1;
+  }
+  .section-subtitle {
+    @apply text-sm text-gray-500 font-medium;
+  }
+
+  /* Price display */
+  .price-main {
+    @apply text-xl font-bold text-gray-900;
+  }
+  .price-original {
+    @apply text-sm text-gray-400 line-through ml-1;
+  }
+  .price-discount {
+    @apply text-sm font-semibold text-green-600;
+  }
+
+  /* Nav */
+  .nav-link {
+    @apply text-sm font-medium text-white/80 hover:text-white hover:bg-white/10
+           px-3 py-1.5 rounded-lg transition-all duration-150 whitespace-nowrap;
+  }
+  .nav-link-active {
+    @apply text-amber-400 bg-white/10;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .hover-lift {
+    @apply transform hover:-translate-y-1 transition-transform duration-200;
+  }
+}
+
+/* ─── Page transitions ───────────────────────────────────────────── */
+.page-enter { animation: fadeIn 0.3s ease-in-out; }
+
+/* ─── Cart drawer ───────────────────────────────────────────────── */
+.drawer-overlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
+  animation: fadeIn 0.2s ease-out;
+}
+.drawer-panel {
+  @apply fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col;
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* ─── Hero carousel ─────────────────────────────────────────────── */
+.carousel-slide {
+  transition: opacity 0.8s ease-in-out;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}

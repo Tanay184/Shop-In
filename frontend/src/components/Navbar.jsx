@@ -163,8 +163,8 @@ export default function Navbar() {
                   {cat}
                 </Link>
               ))}
-              <Link to="/products?featured=true" className="nav-link ml-auto text-amber-400 font-semibold">
-                ⚡ Deals
+              <Link to="/products?featured=true" className="nav-link ml-auto text-amber-400 font-semibold flex items-center gap-1">
+                <Zap size={13} className="fill-amber-400" /> Deals
               </Link>
             </div>
           </div>

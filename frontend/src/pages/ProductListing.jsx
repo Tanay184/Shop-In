@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
-import { SlidersHorizontal, ChevronDown, X, Search, LayoutGrid, LayoutList } from 'lucide-react'
+import { SlidersHorizontal, ChevronDown, X, Search, Zap } from 'lucide-react'
 import api from '../api/client'
 import ProductCard, { ProductCardSkeleton } from '../components/ProductCard'
 
@@ -121,7 +121,9 @@ export default function ProductListing() {
         <label className="flex items-center gap-3 cursor-pointer">
           <input type="checkbox" checked={featured === 'true'} onChange={(e) => set('featured', e.target.checked ? 'true' : '')}
             className="w-4 h-4 accent-amber-500 rounded" />
-          <span className="text-sm font-medium text-gray-700">⚡ Featured Only</span>
+          <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5">
+            <Zap size={13} className="text-amber-500 fill-amber-500" /> Featured Only
+          </span>
         </label>
       </div>
     </aside>

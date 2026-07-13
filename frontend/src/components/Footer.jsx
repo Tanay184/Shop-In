@@ -13,7 +13,10 @@ export default function Footer() {
       {/* CTA Banner */}
       <div className="bg-gradient-to-r from-amber-500 to-orange-500 py-4">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-semibold text-navy-900">🎉 Free delivery on orders over ₹499</p>
+          <p className="font-semibold text-navy-900 flex items-center gap-2">
+            <Zap size={16} className="fill-navy-900" />
+            Free delivery on orders over ₹499
+          </p>
           <Link to="/products" className="btn-dark text-sm py-2 px-5 bg-navy-900 text-white hover:bg-navy-800">
             Shop Now →
           </Link>

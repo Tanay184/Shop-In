@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Package, ChevronRight, Clock } from 'lucide-react'
+import { Package, ChevronRight, Clock, MapPin } from 'lucide-react'
 import api from '../api/client'
 import { useAuth } from '../context/AuthContext'
 
@@ -87,7 +87,10 @@ export default function Orders() {
               </div>
 
               <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
-                <span>📍 {order.shipping_address}</span>
+                <span className="flex items-center gap-1.5 text-gray-400">
+                  <MapPin size={11} className="text-amber-500 flex-shrink-0" />
+                  {order.shipping_address}
+                </span>
                 <Link to={`/products`} className="flex items-center gap-1 text-amber-600 hover:text-amber-700 font-medium transition-colors">
                   Buy Again <ChevronRight size={12} />
                 </Link>

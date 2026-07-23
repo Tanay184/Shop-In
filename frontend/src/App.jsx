@@ -14,7 +14,7 @@ import Orders from './pages/Orders'
 
 function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-neutral-50">
       <Navbar />
       <CartDrawer />
       <div className="flex-1">
